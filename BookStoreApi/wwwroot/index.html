@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To-do CRUD</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Bookstore API CRUD</h1>
+    <h3>Add Book</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <input type="text" id="add-name" placeholder="New book title">
+        <input type="text" id="add-price" placeholder="New book price">
+        <input type="text" id="add-category" placeholder="New book category">
+        <input type="text" id="add-author" placeholder="New book author">
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editForm">
+        <h3>Edit Book Details</h3>
+        <form action="javascript:void(0);" onsubmit="updateItem()">
+            <input type="hidden" id="edit-id">
+            <input type="checkbox" id="edit-isAvailable">
+            <input type="text" id="edit-name">
+            <input type="text" id="edit-price">
+            <input type="text" id="edit-category">
+            <input type="text" id="edit-author">
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+
+    <table>
+        <tr>
+            <th>Is Available?</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tbody id="books"></tbody>
+    </table>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+    </script>
+</body>
+</html>
